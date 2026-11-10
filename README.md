@@ -1,5 +1,8 @@
 # DeveloperPortfolio
 
+For the free GitHub Pages user-site setup, build output, exact push commands,
+and verification checklist, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.3.
 
 ## Development server
