@@ -1,0 +1,120 @@
+
+<section id="experience" class="bg-section px-6 py-24">
+
+  <div class="mx-auto max-w-6xl">
+
+    <!-- Section Heading -->
+    <div class="mb-14">
+      <p class="mb-3 text-sm tracking-widest text-accent-text">
+        04 / CAREER JOURNEY
+      </p>
+
+      <h2 class="text-3xl font-bold md:text-4xl">
+        Professional Experience
+      </h2>
+
+      <p class="mt-4 max-w-2xl text-muted">
+        My journey building enterprise applications
+        and scalable backend solutions.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative ml-2 border-l-2 border-accent/30
+                pl-7 md:ml-4 md:pl-10">
+
+      @for (exp of experiences; track exp.id) {
+
+        <article class="relative mb-10 last:mb-0">
+
+          <!-- Timeline Dot -->
+          <span
+            class="absolute -left-[37px] top-7 h-4 w-4
+                   rounded-full border-4 border-section
+                   bg-accent ring-2 ring-accent/40
+                   md:-left-[49px]">
+          </span>
+
+          <!-- Experience Card -->
+          <div
+            class="interactive-card rounded-2xl border border-line
+                   bg-card p-6
+                   transition-all duration-300
+                   
+                   md:p-8">
+
+            <!-- Company and Role -->
+            <div class="mb-5 flex flex-col
+                        justify-between gap-4
+                        md:flex-row md:items-start">
+
+              <div>
+                <h3 class="text-xl font-bold text-ink">
+                  {{ exp.role }}
+                </h3>
+
+                <p class="mt-2 font-medium text-accent-text">
+                  {{ exp.company }}
+                </p>
+              </div>
+
+              <span
+                class="w-fit rounded-full bg-accent/10
+                       px-4 py-2 text-xs text-accent-text">
+                {{ exp.employmentPeriod }}
+              </span>
+            </div>
+
+            <!-- Project -->
+            <p class="mb-3 text-sm font-medium text-ink">
+              {{ exp.project }}
+            </p>
+
+            <!-- Description -->
+            <p class="mb-6 leading-7 text-muted">
+              {{ exp.description }}
+            </p>
+
+            <!-- Achievements -->
+            <h4 class="mb-4 text-sm font-semibold text-ink">
+              Key Contributions
+            </h4>
+
+            <ul class="mb-7 space-y-3">
+
+              @for (achievement of exp.achievements;
+                    track achievement) {
+
+                <li class="flex items-start gap-3
+                           text-sm leading-6 text-muted">
+
+                  <span class="mt-1 text-accent-text">✓</span>
+
+                  <span>{{ achievement }}</span>
+                </li>
+              }
+
+            </ul>
+
+            <!-- Technologies -->
+            <div class="flex flex-wrap gap-2">
+
+              @for (tech of exp.technologies; track tech) {
+                <span
+                  class="rounded-lg border border-line
+                         bg-surface px-3 py-1.5
+                         text-xs text-muted">
+
+                  {{ tech }}
+
+                </span>
+              }
+
+            </div>
+          </div>
+        </article>
+      }
+
+    </div>
+  </div>
+</section>

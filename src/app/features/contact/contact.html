@@ -1,0 +1,98 @@
+
+<section
+  id="contact"
+  class="relative overflow-hidden px-6 py-28">
+
+  <!-- Background Glow -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute
+           left-1/2 top-1/2 h-96 w-96
+           -translate-x-1/2 -translate-y-1/2
+           rounded-full bg-accent/10 blur-3xl">
+  </div>
+
+  <div class="relative z-10 mx-auto
+              max-w-3xl text-center">
+
+    <p class="mb-4 text-sm tracking-widest
+              text-accent-text">
+      06 / GET IN TOUCH
+    </p>
+
+    <h2 class="mb-6 text-4xl font-bold
+               md:text-5xl">
+      Let's Build
+      <span class="text-accent-text">
+        Something Great.
+      </span>
+    </h2>
+
+    <p class="mx-auto mb-10 max-w-xl
+              leading-8 text-muted">
+      I'm open to opportunities in Java backend,
+      full-stack development and software engineering.
+      Let's connect and discuss how I can contribute.
+    </p>
+
+    <!-- Primary Buttons -->
+    <div class="mb-10 flex flex-wrap
+                justify-center gap-4">
+
+      <a
+        [href]="emailLink"
+        class="button-effect button-primary rounded-xl bg-action
+               px-7 py-3 font-semibold text-on-action
+               transition hover:bg-action-hover">
+        Get In Touch ↗
+      </a>
+
+      <a
+        [href]="profile.resume"
+        download="Krunal_Moharkar_Resume.pdf"
+        class="button-effect button-secondary rounded-xl border border-line
+               px-7 py-3 font-semibold text-ink
+               transition hover:border-accent
+               hover:text-ink">
+        Download Resume ↓
+      </a>
+
+    </div>
+
+    <!-- Social Links -->
+    <div class="flex flex-wrap justify-center gap-5">
+
+      <a
+        [href]="profile.github"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit GitHub profile"
+        class="button-effect button-social rounded-xl border border-line
+               bg-surface px-5 py-3 text-sm
+               text-muted hover:text-accent-text">
+        GitHub ↗
+      </a>
+
+      <a
+        [href]="profile.linkedin"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visit LinkedIn profile"
+        class="button-effect button-social rounded-xl border border-line
+               bg-surface px-5 py-3 text-sm
+               text-muted hover:text-accent-text">
+        LinkedIn ↗
+      </a>
+
+      <a
+        [href]="emailLink"
+        class="button-effect button-social rounded-xl border border-line
+               bg-surface px-5 py-3 text-sm
+               text-muted hover:text-accent-text">
+        Email ↗
+      </a>
+
+    </div>
+
+  </div>
+</section>

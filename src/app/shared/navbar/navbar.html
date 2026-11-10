@@ -1,0 +1,46 @@
+<header class="sticky top-0 z-50 border-b
+               border-line bg-page/90
+               backdrop-blur-md">
+
+    <nav class="mx-auto flex max-w-6xl
+              items-center justify-between px-6 py-5">
+
+        <a href="#" class="text-xl font-bold text-ink">
+            KM<span class="text-accent-text">.</span>
+        </a>
+
+        <div class="hidden gap-6 text-sm text-muted lg:flex">
+            <a href="#about" class="nav-link hover:text-accent-text">About</a>
+            <a href="#skills" class="nav-link hover:text-accent-text">Skills</a>
+            <a href="#projects" class="nav-link hover:text-accent-text">Projects</a>
+            <a href="#experience" class="nav-link hover:text-accent-text">Experience</a>
+            <a href="#credentials" class="nav-link hover:text-accent-text">Certifications</a>
+            <a href="#contact" class="nav-link hover:text-accent-text">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+        <button type="button"
+                class="theme-toggle flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line bg-card text-accent-text hover:border-accent hover:bg-surface"
+                (click)="themeService.toggle()"
+                [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to Warm Light theme' : 'Switch to Dark Premium theme'"
+                [attr.title]="themeService.theme() === 'dark' ? 'Switch to Warm Light' : 'Switch to Dark Premium'">
+            @if (themeService.theme() === 'dark') {
+                <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42m0-14.14-1.42 1.42M6.35 17.65l-1.42 1.42" />
+                </svg>
+            } @else {
+                <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z" />
+                </svg>
+            }
+        </button>
+        <a href="/Krunal-Moharkar-Resume.pdf" download class="button-effect button-secondary rounded-lg border border-accent
+              px-4 py-2 text-sm text-accent-text
+              hover:bg-accent/10">
+            Resume
+        </a>
+        </div>
+
+    </nav>
+</header>

@@ -1,0 +1,80 @@
+
+<article
+  class="interactive-card group flex h-full flex-col overflow-hidden
+         rounded-2xl border border-line bg-card
+         transition-all duration-300
+          ">
+
+  <div class="aspect-[2/1] overflow-hidden bg-surface">
+    <img
+      [src]="project().image"
+      [alt]="project().title + ' illustrative dashboard preview'"
+      width="960"
+      height="480"
+      loading="lazy"
+      decoding="async"
+      class="h-full w-full object-cover
+             transition-transform duration-500
+             project-image"
+    />
+  </div>
+
+  <div class="flex flex-1 flex-col p-6">
+
+    <div class="mb-3 flex flex-wrap items-center gap-3">
+      <span class="text-xs font-medium text-accent-text">
+        {{ project().category }}
+      </span>
+
+      <span class="rounded-full bg-surface
+                   px-3 py-1 text-xs text-muted">
+        {{ project().status }}
+      </span>
+    </div>
+
+    <h3 class="mb-3 text-xl font-bold text-ink">
+      {{ project().title }}
+    </h3>
+
+    <p class="mb-6 text-sm leading-7 text-muted">
+      {{ project().description }}
+    </p>
+
+    <div class="mb-6 flex flex-wrap gap-2">
+      @for (tech of project().techStack; track tech) {
+        <span
+          class="rounded-md bg-accent/10
+                 px-3 py-1 text-xs text-accent-text">
+          {{ tech }}
+        </span>
+      }
+    </div>
+
+    <div class="mt-auto flex flex-wrap gap-5
+                border-t border-line pt-5">
+
+      @if (project().githubUrl; as githubUrl) {
+        <a
+          [href]="githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-link text-sm font-medium text-ink
+                 hover:text-accent-text">
+          GitHub ↗
+        </a>
+      }
+
+      @if (project().liveUrl; as liveUrl) {
+        <a
+          [href]="liveUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-link text-sm font-medium text-ink
+                 hover:text-accent-text">
+          Live Demo ↗
+        </a>
+      }
+
+    </div>
+  </div>
+</article>

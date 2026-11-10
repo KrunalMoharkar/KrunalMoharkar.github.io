@@ -1,0 +1,30 @@
+
+<section id="projects" class="px-6 py-24">
+
+  <div class="mx-auto max-w-6xl">
+
+    <div class="mb-12">
+      <p class="mb-3 text-sm tracking-widest text-accent-text">
+        03 / FEATURED WORK
+      </p>
+
+      <h2 class="text-3xl font-bold md:text-4xl">
+        Projects I've Built
+      </h2>
+
+      <p class="mt-4 max-w-2xl text-muted">
+        Exploring full-stack development, scalable
+        backend systems and AI engineering.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+
+      @for (project of projects; track project.id) {
+        <app-project-card [project]="project" />
+      }
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,6 @@
+.theme-toggle { cursor: pointer; }
+.theme-icon { transition: transform 200ms ease; }
+.theme-toggle:hover .theme-icon { transform: rotate(12deg); }
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle:hover .theme-icon { transform: none; }
+}

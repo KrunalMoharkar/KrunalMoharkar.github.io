@@ -1,1 +1,164 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+/* Runtime semantic tokens shared by all components. */
+@theme inline {
+  --color-page: var(--page);
+  --color-section: var(--section);
+  --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-footer: var(--footer);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-action: var(--action);
+  --color-action-hover: var(--action-hover);
+  --color-on-action: var(--on-action);
+  --color-gradient-start: var(--gradient-start);
+  --color-gradient-end: var(--gradient-end);
+}
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color-scheme: dark;
+  --page: #0b1020;
+  --section: #0e1527;
+  --card: #151d30;
+  --surface: #202943;
+  --footer: #080d19;
+  --ink: #f8fafc;
+  --muted: #b5bfd0;
+  --subtle: #9ba8be;
+  --line: #ffffff1a;
+  --accent: #8b5cf6;
+  --accent-text: #c4b5fd;
+  --action: #7c3aed;
+  --action-hover: #6d28d9;
+  --on-action: #ffffff;
+  --gradient-start: #c4b5fd;
+  --gradient-end: #38bdf8;
+  --card-shadow: 0 12px 36px #0000001a;
+  --hover-shadow: 0 16px 40px #8b5cf614;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page: #faf9f6;
+  --section: #f2eee7;
+  --card: #ffffff;
+  --surface: #f4f0e9;
+  --footer: #eee9e1;
+  --ink: #292524;
+  --muted: #625850;
+  --subtle: #73665b;
+  --line: #dfd7cc;
+  --accent: #c76543;
+  --accent-text: #a5492c;
+  --action: #ad4e30;
+  --action-hover: #913e25;
+  --on-action: #ffffff;
+  --gradient-start: #a5492c;
+  --gradient-end: #825b32;
+  --card-shadow: 0 4px 24px #59432c0a, 0 1px 3px #59432c08;
+  --hover-shadow: 0 12px 32px #59432c14;
+}
+
+/* Darker accent-text and action colors keep small text accessible. */
+html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+body { margin: 0; background: var(--page); color: var(--ink); }
+body, header, footer, section, .bg-card, .bg-surface, a, button {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: 200ms;
+}
+.bg-card { box-shadow: var(--card-shadow); }
+.button-effect {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  isolation: isolate;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 220ms ease, box-shadow 220ms ease,
+    background-color 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+.button-primary {
+  background-image: linear-gradient(135deg, transparent, #00000012);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--action) 20%, transparent);
+}
+/* A single light sweep follows interaction; no looping animations. */
+.button-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 25%, #ffffff26 50%, transparent 75%);
+  transform: translateX(-120%);
+  transition: transform 550ms ease;
+}
+.button-secondary { background-color: var(--card); }
+.button-effect:active { transform: translateY(0) scale(0.98); }
+.interactive-card {
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease,
+    background-color 200ms ease;
+}
+.interactive-card:focus-within {
+  border-color: var(--accent);
+  box-shadow: var(--hover-shadow);
+}
+.nav-link, .text-link {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent-text), var(--accent-text));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 1px;
+  transition: background-size 220ms ease, color 200ms ease;
+}
+.nav-link { padding-block: 0.35rem; }
+.nav-link:focus-visible, .text-link:focus-visible { background-size: 100% 1px; }
+.button-effect:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+.button-primary:focus-visible::after { transform: translateX(120%); }
+.skill-chip {
+  transition: border-color 200ms ease, background-color 200ms ease, color 200ms ease;
+}
+/* Hover motion is reserved for precise pointers, avoiding sticky touch effects. */
+@media (hover: hover) and (pointer: fine) {
+  .button-effect:hover { transform: translateY(-3px); }
+  .button-primary:hover {
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--action) 28%, transparent);
+  }
+  .button-primary:hover::after { transform: translateX(120%); }
+  .button-secondary:hover, .button-social:hover {
+    border-color: var(--accent);
+    background-color: color-mix(in srgb, var(--accent) 8%, var(--card));
+    box-shadow: var(--hover-shadow);
+  }
+  .button-effect:active { transform: translateY(0) scale(0.98); }
+  .interactive-card:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+    box-shadow: var(--hover-shadow);
+  }
+  .interactive-card:hover .project-image { transform: scale(1.04); }
+  .nav-link:hover, .text-link:hover { background-size: 100% 1px; }
+  .skill-chip:hover { background-color: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+}
+:where(a, button):focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
+::selection { background: var(--action); color: var(--on-action); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .button-effect, .button-primary::after, .interactive-card, .project-image {
+    transform: none !important;
+  }
+  .button-primary::after { display: none; }
+}

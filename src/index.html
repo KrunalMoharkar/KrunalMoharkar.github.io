@@ -1,10 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <title>DeveloperPortfolio</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Restore before styles and Angular load to minimize theme flicker. -->
+  <script>
+    try {
+      document.documentElement.dataset.theme =
+        localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark';
+    } catch (_) { /* Dark is the default when storage is unavailable. */ }
+  </script>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
